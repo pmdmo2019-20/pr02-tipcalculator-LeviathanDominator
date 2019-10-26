@@ -1,7 +1,279 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- TODO Using ConstraintLayout
-     android:textAppearance="?android:attr/textAppearanceSmall" for TextViews
-     style="@style/Base.TextAppearance.AppCompat.Headline" for EditTexts
-     style="@style/Widget.AppCompat.Button.Borderless" for Buttons
--->
 
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/main_margin">
+
+    <TextView
+        android:id="@+id/lblBill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/main_inter_margin"
+        android:text="@string/lblBill"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:layout_constraintBottom_toTopOf="@+id/txtBill"
+        app:layout_constraintEnd_toStartOf="@+id/lblBillEuro" />
+
+    <EditText
+        android:id="@+id/txtBill"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="@dimen/zeroSize"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:maxLength="@integer/txtBillMaxLength"
+        android:selectAllOnFocus="true"
+        android:text="@string/txtDefault"
+        app:layout_constraintEnd_toStartOf="@+id/lblBillEuro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblBill"
+        tools:ignore="LabelFor">
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/lblBillEuro"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txtEuro"
+        app:layout_constraintBottom_toBottomOf="@+id/txtBill"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtBill"
+        app:layout_constraintTop_toBottomOf="@+id/lblBill" />
+
+    <EditText
+        android:id="@+id/txtTip"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="@dimen/zeroSize"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:gravity="end"
+        android:importantForAutofill="no"
+        android:inputType="none"
+        android:text="@string/txtDefault"
+        app:layout_constraintEnd_toStartOf="@+id/lblTipEuro"
+        app:layout_constraintStart_toEndOf="@+id/lblPercentageSymbol"
+        app:layout_constraintTop_toBottomOf="@+id/lblTip"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/lblTip"
+        android:layout_width="@dimen/zeroSize"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="@string/lblTip"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:layout_constraintBottom_toTopOf="@+id/txtTip"
+        app:layout_constraintEnd_toStartOf="@+id/lblTipEuro"
+        app:layout_constraintStart_toEndOf="@+id/lblPercentage"
+        app:layout_constraintTop_toBottomOf="@+id/txtBill" />
+
+    <TextView
+        android:id="@+id/lblTipEuro"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txtEuro"
+        app:layout_constraintBottom_toTopOf="@+id/lblTotal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblTip" />
+
+    <TextView
+        android:id="@+id/lblPercentage"
+        android:layout_width="@dimen/zeroSize"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="@string/lblPercentage"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:layout_constraintBottom_toTopOf="@+id/txtPercentage"
+        app:layout_constraintEnd_toEndOf="@+id/txtPercentage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtBill" />
+
+    <EditText
+        android:id="@+id/txtPercentage"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="@dimen/txtPercentageWidth"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:maxLength="@integer/txtPercentageMaxLength"
+        android:selectAllOnFocus="true"
+        android:text="@string/txtPercentageDefault"
+        app:layout_constraintEnd_toStartOf="@+id/lblPercentageSymbol"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblPercentage"
+        tools:ignore="Autofill,LabelFor" />
+
+    <TextView
+        android:id="@+id/lblPercentageSymbol"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/main_inter_margin"
+        android:text="@string/txtPercentageSymbol"
+        app:layout_constraintBottom_toTopOf="@+id/txtTotal"
+        app:layout_constraintEnd_toStartOf="@+id/txtTip"
+        app:layout_constraintStart_toEndOf="@+id/txtPercentage"
+        app:layout_constraintTop_toBottomOf="@+id/txtBill" />
+
+    <TextView
+        android:id="@+id/lblTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lblTotal"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:layout_constraintEnd_toStartOf="@+id/lblTotalEuro"
+        app:layout_constraintTop_toBottomOf="@+id/txtPercentage" />
+
+    <EditText
+        android:id="@+id/txtTotal"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="@dimen/zeroSize"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:gravity="end"
+        android:importantForAutofill="no"
+        android:inputType="none"
+        android:text="@string/txtDefault"
+        app:layout_constraintEnd_toStartOf="@+id/lblTotalEuro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblTotal"
+        tools:ignore="Autofill,LabelFor" />
+
+    <TextView
+        android:id="@+id/lblTotalEuro"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txtEuro"
+        app:layout_constraintBottom_toTopOf="@+id/btnResetTip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblTotal" />
+
+    <Button
+        android:id="@+id/btnResetTip"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="@dimen/zeroSize"
+        android:layout_height="wrap_content"
+        android:text="@string/btnReset"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTotal" />
+
+    <TextView
+        android:id="@+id/lblDiners"
+        android:layout_width="@dimen/zeroSize"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="@string/lblDiners"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:layout_constraintEnd_toEndOf="@+id/txtDiners"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnResetTip" />
+
+    <EditText
+        android:id="@+id/txtDiners"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="@dimen/txtDinersWidth"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/main_inter_margin"
+        android:gravity="end"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:maxLength="@integer/txtDinersMaxLength"
+        android:nextFocusDown="@id/txtBill"
+        android:selectAllOnFocus="true"
+        android:text="@string/txtDinersDefault"
+        app:layout_constraintEnd_toStartOf="@+id/txtPerDiner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblDiners"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/lblPerDiner"
+        android:layout_width="@dimen/zeroSize"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="@string/lblPerDiner"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:layout_constraintEnd_toStartOf="@+id/lblPerDinerEuro"
+        app:layout_constraintStart_toEndOf="@+id/lblDiners"
+        app:layout_constraintTop_toBottomOf="@+id/btnResetTip" />
+
+    <EditText
+        android:id="@+id/txtPerDiner"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="@dimen/zeroSize"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:gravity="end"
+        android:importantForAutofill="no"
+        android:text="@string/txtDefault"
+        app:layout_constraintEnd_toStartOf="@+id/lblPerDinerEuro"
+        app:layout_constraintStart_toEndOf="@+id/txtDiners"
+        app:layout_constraintTop_toBottomOf="@+id/lblPerDiner"
+        tools:ignore="LabelFor,TextFields" />
+
+    <TextView
+        android:id="@+id/lblPerDinerEuro"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txtEuro"
+        app:layout_constraintBottom_toTopOf="@+id/lblPerDinerRounded"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblPerDiner" />
+
+    <TextView
+        android:id="@+id/lblPerDinerRounded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lblPerDinerRounded"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:layout_constraintEnd_toStartOf="@+id/txtPerDinerRoundedEuro"
+        app:layout_constraintTop_toBottomOf="@+id/txtPerDiner" />
+
+    <EditText
+        android:id="@+id/txtPerDinerRounded"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:gravity="end"
+        android:importantForAutofill="no"
+        android:inputType="none"
+        android:text="@string/txtDefault"
+        app:layout_constraintEnd_toStartOf="@+id/txtPerDinerRoundedEuro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblPerDinerRounded"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/txtPerDinerRoundedEuro"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txtEuro"
+        app:layout_constraintBottom_toTopOf="@+id/btnResetDiners"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblPerDinerRounded" />
+
+    <Button
+        android:id="@+id/btnResetDiners"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnReset"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPerDinerRounded" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

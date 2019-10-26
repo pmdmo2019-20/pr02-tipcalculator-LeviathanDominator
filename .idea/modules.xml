@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Tip calculator.iml" filepath="$PROJECT_DIR$/Tip calculator.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pr02-tipcalculator-LeviathanDominator-Tip calculator.iml" filepath="$PROJECT_DIR$/pr02-tipcalculator-LeviathanDominator-Tip calculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/pr02-tipcalculator-LeviathanDominator-app.iml" filepath="$PROJECT_DIR$/app/pr02-tipcalculator-LeviathanDominator-app.iml" />
     </modules>
   </component>
 </project>
