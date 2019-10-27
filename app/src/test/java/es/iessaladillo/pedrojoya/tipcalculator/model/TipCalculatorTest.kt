@@ -67,7 +67,7 @@ class TipCalculatorTest {
     @Test
     fun `should calculate perDinerRounded properly when perDinerRounded has 00 as cents`() {
         val tipCalculator = TipCalculator(18.2f, 10f, 5) // Per diner = 4.00
-        assertEquals(4.00f, tipCalculator.calculatePerDinerRounded())
+        assertEquals(4f, tipCalculator.calculatePerDinerRounded())
     }
 
 }

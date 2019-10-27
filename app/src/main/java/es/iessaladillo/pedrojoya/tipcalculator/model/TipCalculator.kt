@@ -1,6 +1,5 @@
 package es.iessaladillo.pedrojoya.tipcalculator.model
 
-import es.iessaladillo.pedrojoya.tipcalculator.R
 import kotlin.math.roundToInt
 
 
@@ -9,9 +8,9 @@ import kotlin.math.roundToInt
 class TipCalculator(private var bill: Float, private var percentage: Float, private var diners: Int) {
 
     init {
-        require(bill >= 0) { R.string.invalidBill }
-        require(percentage >= 0) { R.string.invalidPercentage }
-        require(diners >= 0) { R.string.invalidDiners }
+        require(bill >= 0) { "Bill must be positive." }
+        require(percentage >= 0) { "Percentage must be positive." }
+        require(diners >= 0) { "Diners must be positive." }
     }
 
     fun calculateTip(): Float {
